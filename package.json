@@ -1,9 +1,12 @@
 {
-  "name": "project",
-  "version": "0.1.0",
+  "name": "meeting",
+  "version": "1.0.0",
   "private": true,
   "dependencies": {
+    "@testing-library/jest-dom": "^4.1.0",
+    "@testing-library/react": "^8.0.1",
     "create-react-app": "^1.4.3",
+    "jest-dom": "^4.0.0",
     "prop-types": "^15.6.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
@@ -11,8 +14,7 @@
     "save": "^2.3.1"
   },
   "scripts": {
-    "start": "HOST=0.0.0.0 PORT=8000 ./node_modules/.bin/react-scripts start",
-    "pretest": "npm install",
+    "start": "HOST=0.0.0.0 && PORT=8000 && ./node_modules/.bin/react-scripts start",
     "test": "rm -rf ./junit.xml && ./node_modules/.bin/react-scripts test --verbose --env=jsdom --testResultsProcessor ./node_modules/jest-junit"
   },
   "devDependencies": {
