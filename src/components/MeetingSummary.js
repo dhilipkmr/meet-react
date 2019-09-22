@@ -40,12 +40,12 @@ class MeetingSummary extends React.Component {
                   <li className="fb" data-cy="summaryHeading">{buildingName + ' - ' + floorNumber + ' - ' + meetingRoomName}</li>
                   <li className="padT10" data-cy="startSummary">
                     <span className="fb">Starts at:</span>
-                    <span>{new Date(startDate).toGMTString() + ', '}</span>
+                    <span>{new Date(startDate).toDateString() + ', '}</span>
                     <span>{startTime}</span>
                   </li>
                   <li className="padT10" data-cy="endSummary">
                     <span className="fb">Ends at:</span>
-                    <span>{new Date(endDate).toGMTString() + ', '}</span>
+                    <span>{new Date(endDate).toDateString() + ', '}</span>
                     <span>{endTime}</span>
                   </li>
                 </ul>

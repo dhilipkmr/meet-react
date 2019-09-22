@@ -1,11 +1,10 @@
 import React from 'react';
 import App from './App';
 import { render, fireEvent, cleanup } from '@testing-library/react';
-
 import '@testing-library/jest-dom/extend-expect';
 
-const renderApp = () => render(<App />);
 
+const renderApp = () => render(<App />);
 const dateToUse = new Date(new Date().setDate(new Date().getDate() + 1));
 const year = dateToUse.getFullYear();
 let month = dateToUse.getMonth() + 1;
@@ -32,16 +31,6 @@ beforeEach(() => {
   fireEvent.change(document.querySelector('[data-cy="endDate"]'), { target: { value: year + '-' + month + '-' + day } });
   fireEvent.change(document.querySelector('[data-cy="endTime"]'), { target: { value: '14:00' } });
 })
-
-test('Should update the values for the fields properly', () => {
-  expect(document.querySelector('[data-cy="blockSelector"]').value).toBe('Block B');
-  expect(document.querySelector('[data-cy="floorSelector"]').value).toBe('Floor 2');
-  expect(document.querySelector('[data-cy="roomSelector"]').value).toBe('Meeting Room 2');
-  expect(document.querySelector('[data-cy="startTime"]').value).toBe('13:00');
-  expect(document.querySelector('[data-cy="endTime"]').value).toBe('14:00');
-  expect(document.querySelector('[data-cy="startDate"]').value).toBe(year + '-' + month + '-' + day);
-  expect(document.querySelector('[data-cy="endDate"]').value).toBe(year + '-' + month + '-' + day);
-});
 
 test('Should add Meeting under All meetings tab', () => {
   fireEvent.click(document.querySelector('[data-cy="scheduleBtn"]'));
@@ -127,7 +116,7 @@ test('should add content to All meetings tab in sorted order', () => {
   expect($endDates[1]).toHaveTextContent('14:00');
 });
 
-it('should not add a meeting if the room is pre booked', () => {
+it('should show error message while trying to book pre-booked room and should not add a card', () => {
   fireEvent.click(document.querySelector('[data-cy="scheduleBtn"]'));
   fireEvent.change(document.querySelector('[data-cy="blockSelector"]'), { target: { value: 'Block B' } });
   fireEvent.change(document.querySelector('[data-cy="floorSelector"]'), { target: { value: 'Floor 2' } });
@@ -137,21 +126,10 @@ it('should not add a meeting if the room is pre booked', () => {
   fireEvent.change(document.querySelector('[data-cy="endDate"]'), { target: { value: year + '-' + month + '-' + day } });
   fireEvent.change(document.querySelector('[data-cy="endTime"]'), { target: { value: '14:00' } });
   fireEvent.click(document.querySelector('[data-cy="scheduleBtn"]'));
+
   expect(document.querySelectorAll('[data-cy="meetingSummary"] [data-cy="ul"] [data-cy="summaryHeading"]').length).toBe(1);
   expect(document.querySelectorAll('[data-cy="meetingSummary"] [data-cy="ul"] [data-cy="startSummary"]').length).toBe(1);
   expect(document.querySelectorAll('[data-cy="meetingSummary"] [data-cy="ul"] [data-cy="endSummary"]').length).toBe(1);
-});
-
-it('should show error message while trying to book pre-booked room', () => {
-  fireEvent.click(document.querySelector('[data-cy="scheduleBtn"]'));
-  fireEvent.change(document.querySelector('[data-cy="blockSelector"]'), { target: { value: 'Block B' } });
-  fireEvent.change(document.querySelector('[data-cy="floorSelector"]'), { target: { value: 'Floor 2' } });
-  fireEvent.change(document.querySelector('[data-cy="roomSelector"]'), { target: { value: 'Meeting Room 2' } });
-  fireEvent.change(document.querySelector('[data-cy="startDate"]'), { target: { value: year + '-' + month + '-' + day } });
-  fireEvent.change(document.querySelector('[data-cy="startTime"]'), { target: { value: '13:00' } });
-  fireEvent.change(document.querySelector('[data-cy="endDate"]'), { target: { value: year + '-' + month + '-' + day } });
-  fireEvent.change(document.querySelector('[data-cy="endTime"]'), { target: { value: '14:00' } });
-  fireEvent.click(document.querySelector('[data-cy="scheduleBtn"]'));
 
   expect(document.querySelector('[data-cy="error"]')).toHaveTextContent('Invalid Input');
 });
