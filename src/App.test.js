@@ -1,11 +1,10 @@
 import React from 'react';
 import App from './App';
 import { render, fireEvent, cleanup } from '@testing-library/react';
-
 import '@testing-library/jest-dom/extend-expect';
 
-const renderApp = () => render(<App />);
 
+const renderApp = () => render(<App />);
 const dateToUse = new Date(new Date().setDate(new Date().getDate() + 1));
 const year = dateToUse.getFullYear();
 let month = dateToUse.getMonth() + 1;
@@ -32,16 +31,6 @@ beforeEach(() => {
   fireEvent.change(document.querySelector('[data-cy="endDate"]'), { target: { value: year + '-' + month + '-' + day } });
   fireEvent.change(document.querySelector('[data-cy="endTime"]'), { target: { value: '14:00' } });
 })
-
-// test('Should update the values for the fields properly', () => {
-//   expect(document.querySelector('[data-cy="blockSelector"]').value).toBe('Block B');
-//   expect(document.querySelector('[data-cy="floorSelector"]').value).toBe('Floor 2');
-//   expect(document.querySelector('[data-cy="roomSelector"]').value).toBe('Meeting Room 2');
-//   expect(document.querySelector('[data-cy="startTime"]').value).toBe('13:00');
-//   expect(document.querySelector('[data-cy="endTime"]').value).toBe('14:00');
-//   expect(document.querySelector('[data-cy="startDate"]').value).toBe(year + '-' + month + '-' + day);
-//   expect(document.querySelector('[data-cy="endDate"]').value).toBe(year + '-' + month + '-' + day);
-// });
 
 test('Should add Meeting under All meetings tab', () => {
   fireEvent.click(document.querySelector('[data-cy="scheduleBtn"]'));
