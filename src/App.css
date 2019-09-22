@@ -96,12 +96,12 @@ input:focus {
   border-radius: 10px;
 }
 .tab {
-  width: 125px;
+  width: 145px;
   font-weight: bold;
   padding: 5px 25px;
 }
 .card {
-  width: 25%;
+  width: 30%;
   box-shadow: 0 2px 4px 0 #777;
   padding: 10px;
   border-radius: 5px;
