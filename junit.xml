@@ -1,0 +1,22 @@
+<testsuites name="jest tests" tests="9" failures="0" time="1.835">
+  <testsuite name="undefined" errors="0" failures="0" skipped="0" timestamp="2019-09-20T19:25:21" time="1.835" tests="9">
+    <testcase classname=" Should update the values for the fields properly" name=" Should update the values for the fields properly" time="0.056">
+    </testcase>
+    <testcase classname=" Should add Meeting under All meetings tab" name=" Should add Meeting under All meetings tab" time="0.038">
+    </testcase>
+    <testcase classname=" Should reset values after successful addition" name=" Should reset values after successful addition" time="0.02">
+    </testcase>
+    <testcase classname=" should add content to All meetings tab in sorted order" name=" should add content to All meetings tab in sorted order" time="0.038">
+    </testcase>
+    <testcase classname=" should not add a meeting if the room is pre booked" name=" should not add a meeting if the room is pre booked" time="0.027">
+    </testcase>
+    <testcase classname=" should show error message while trying to book pre-booked room" name=" should show error message while trying to book pre-booked room" time="0.028">
+    </testcase>
+    <testcase classname=" should show error message while trying to book in past" name=" should show error message while trying to book in past" time="0.018">
+    </testcase>
+    <testcase classname=" should show only today&apos;s meeting in Today&apos;s Meeting Tab" name=" should show only today&apos;s meeting in Today&apos;s Meeting Tab" time="0.033">
+    </testcase>
+    <testcase classname=" should add content to All meetings tab in sorted order" name=" should add content to All meetings tab in sorted order" time="0.04">
+    </testcase>
+  </testsuite>
+</testsuites>
